@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void jouer(int max,int nbm)
+{
+    int n=0,cmpt=0;
+     do
+    { cmpt++;
+
+        printf("donner un nombre entre 1 et %d",max);
+        scanf("%d",&n);
+ if(n>=1 && n<=max)
+        {
+
+
+        if (n<nbm)
+        {
+            printf("c est plus\n");
+        }
+        else if (n>nbm)
+        {
+            printf("c est moins\n");
+        }
+        else
+        {
+            printf("bravo vous avez trouvez le nombre mystere dans %d etaps",cmpt);
+        }
+       }
+       else
+       {
+           printf("erreur donner un nombre entre 1 et %d",max);
+       }
+
+
+
+    }while (n!=nbm);
+
+}
+int main()
+{
+    int niv,min=1,max=0,nbm;
+     srand(time(NULL));
+
+
+    printf("1:entre 1 est 100\n");
+    printf("2:entre 1 est 1000\n");
+    printf("3:entre 1 est 10000\n");
+    printf("choisi un niveau");
+    scanf("%d",&niv);
+    if(niv<=3 && niv>=1)
+    {
+        if(niv==1)
+        {
+          max= 100;
+          nbm=(rand()%(max-min+1))+min;
+          jouer(max,nbm);
+        }
+        else if (niv==2)
+        {
+            max=1000;
+            nbm=(rand()%(max-min+1))+min;
+            jouer(max,nbm);
+        }
+        else
+        {
+            max=10000;
+            nbm=(rand()%(max-min+1))+min;
+            jouer(max,nbm);
+        }
+    }
+    else
+    {
+        printf("erreur il n a pas se niveau dans se jeu ");
+    }
+
+
+    return 0;
+}
